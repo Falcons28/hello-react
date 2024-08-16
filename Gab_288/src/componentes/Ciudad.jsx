@@ -9,8 +9,7 @@ function Ciudad ({nombre,descripcion,imagen}) {
         <div className="ciudad">
             <h3 className="ciudad__titulo">{nombre}</h3>
             <p className="ciudad__descripcion">{descripcion}</p>
-            --muestra un texto alternativo "alt"
-            <img src={imagen} alt={nombre} />
+            <img src={imagen} alt={nombre} className="ciudad__imagen"/>
         </div>
         </>
     );
