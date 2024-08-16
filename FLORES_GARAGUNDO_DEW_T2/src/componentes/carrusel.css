@@ -1,0 +1,16 @@
+/* Carrusel.css */
+.carrusel {
+    text-align: center;
+  }
+  
+  .carrusel img {
+    width: 1200px; /* Ancho deseado */
+    height: 400px; /* Alto deseado */
+    object-fit: cover;
+  }
+  
+  #numeroAuto {
+    margin-top: 10px;
+    font-weight: bold;
+  }
+  

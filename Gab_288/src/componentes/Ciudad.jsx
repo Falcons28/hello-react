@@ -11,6 +11,7 @@ function Ciudad ({nombre,descripcion,imagen}) {
             <p className="ciudad__descripcion">{descripcion}</p>
             <img src={imagen} alt={nombre} className="ciudad__imagen"/>
         </div>
+        
         </>
     );
 }

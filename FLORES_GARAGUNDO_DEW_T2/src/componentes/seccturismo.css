@@ -1,0 +1,31 @@
+/* seccturismo.css */
+.imagen-turistica-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: stretch;
+  margin-bottom: 40px;
+  padding: 0 20px;
+}
+
+.imagen-turistica {
+  flex: 1;
+  margin: 10px;
+  box-sizing: border-box;
+}
+
+.imagen-turistica img {
+  width: 100%;
+  height: auto;
+  transition: transform 0.3s ease;
+  border-radius: 10px;
+}
+
+.imagen-turistica img:hover {
+  transform: scale(1.1);
+}
+
+.imagen-turistica p {
+  text-align: center;
+  font-weight: bold;
+  margin-top: 5px;
+}
