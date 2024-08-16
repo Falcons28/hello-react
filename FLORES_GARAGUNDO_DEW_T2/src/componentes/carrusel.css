@@ -2,11 +2,12 @@
 .carrusel {
     text-align: center;
   }
-  
+
   .carrusel img {
-    width: 1200px; /* Ancho deseado */
+    width: 1700px; /* Ancho deseado */
     height: 400px; /* Alto deseado */
     object-fit: cover;
+    border-radius: 20px;
   }
   
   #numeroAuto {

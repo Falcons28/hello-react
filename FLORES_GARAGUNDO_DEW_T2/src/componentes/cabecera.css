@@ -1,36 +1,38 @@
-/* Menu.css */
+/*estilos para la cabecera*/
 .menu {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 10px 0;
-  background-color: #f8f9fa;
-}
+  display: flex; /* sirve para alinear */
+  align-items: center; /* Alinea verticalmente los elementos hijos al centro */
+  justify-content: space-between; /* Distribuye los elementos hijos con espacio entre ellos: logo a la izquierda, menú a la derecha */
+  padding: 0px 90px; /* Añade un relleno interno de 20px en la parte superior/inferior y 30px en los lados izquierdo/derecho */
+  background-color: #f8f9e6; /* Establece un color de fondo claro (#f8f9e6) para la barra de menú */
 
+}
+.logo-container {
+  display: flex; /* Utiliza Flexbox para alinear el logo y el texto dentro del contenedor */
+  align-items: center; /* Alinea verticalmente el logo y el texto al centro */
+}
 .menu .logotipo {
-  width: 50px;
-  height: 50px;
-  margin-right: 20px;
+  width: 60px; /* Establece el ancho del logo a 50px */
+  height: 60px; /* Establece la altura del logo a 50px */
+  margin-right: 10px; /* Añade un margen de 10px a la derecha del logo, separándolo del texto "TRAVELING" */
+  border-radius: 40px;
+ 
 }
-
 .menu ul {
-  display: flex;
-  list-style: none;
-  padding: 0;
-  margin: 0;
+  display: flex; /* Utiliza Flexbox para alinear los elementos de la lista (elementos del menú) en una fila */
+  list-style: none; /* Elimina los puntos o numeración predeterminados de la lista */
 }
-
 .menu ul li {
-  margin-right: 20px;
+  margin-right: 50px; /* Añade un margen de 20px a la derecha de cada elemento de la lista, separando los elementos del menú */
 }
-
 .menu ul li a {
-  text-decoration: none;
-  color: #171f20;
-  font-weight: normal;
+  text-decoration: none; /* Elimina la subrayado predeterminado de los enlaces */
+  color: #171f20; /* Establece el color del texto de los enlaces a un tono gris oscuro (#171f20) */
+  font-weight: normal; /* Establece el peso de la fuente de los enlaces a normal */
+  font-size: 22px;
+  
 }
-
 .menu ul li a:hover {
-  color: #328691;
-  font-weight: bold;
+  color: #328691; /* Cambia el color del texto de los enlaces a un tono verde azulado (#328691) cuando el usuario pasa el mouse sobre ellos */
+  font-weight: bold; /* Cambia el peso de la fuente de los enlaces a negrita cuando el usuario pasa el mouse sobre ellos */
 }

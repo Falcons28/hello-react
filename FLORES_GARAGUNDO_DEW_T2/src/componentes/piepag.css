@@ -1,0 +1,31 @@
+/* estilos del pie de pagína */
+.pie-pagina {
+    background-color: #1b873f;
+    padding: 20px 80px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #fff;
+    font-size: 24px;
+    font-weight: bold;
+  }
+  .contenido-pie {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    
+  }
+  .redes-sociales {
+    display: flex;
+    gap: 15px;
+  }
+  .icono-red img {
+    width: 24px; /* Ajusta el tamaño de las imágenes según sea necesario */
+    height: 24px;
+    transition: opacity 0.s;
+  }
+  .icono-red img:hover {
+    opacity: 0.7; /* Efecto de hover para las imágenes */
+  }
+  

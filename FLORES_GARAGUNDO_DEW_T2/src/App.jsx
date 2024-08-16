@@ -3,6 +3,8 @@ import './App.css';
 import Cabecera from "./componentes/cabecera";
 import Carrusel from "./componentes/carrusel";
 import SeccionTuristica from "./componentes/seccturismo";
+import Testimonio from "./componentes/testimonio";
+import PiePagina from "./componentes/piepag";
 
 
 function Aplicacion() {
@@ -14,7 +16,11 @@ function Aplicacion() {
       <section className="seccion-carrusel">
         <Carrusel />
       </section>
-<SeccionTuristica />
+< section >
+  <SeccionTuristica />
+  </section>
+  <Testimonio/>
+  <PiePagina/>
     </div>
   );
 }

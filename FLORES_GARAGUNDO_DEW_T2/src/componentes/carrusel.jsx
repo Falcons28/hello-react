@@ -1,6 +1,5 @@
 // Carrusel.jsx
-import { Fragment } from "react";
-import React, { useState, useEffect } from 'react';
+import { Fragment,useState, useEffect } from "react";
 import './carrusel.css';
 import carrusel1 from '../image/carrusel1.jpg';
 import carrusel2 from '../image/carrusel2.jpg';

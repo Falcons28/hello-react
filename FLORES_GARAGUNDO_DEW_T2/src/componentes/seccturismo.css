@@ -1,31 +1,43 @@
-/* seccturismo.css */
-.imagen-turistica-container {
+/*estidos del sección turismo*/
+.seccion-turistica {
   display: flex;
   justify-content: space-between;
-  align-items: stretch;
   margin-bottom: 40px;
-  padding: 0 20px;
+  padding: 20px;
+  background-color: #f8f9e6;
 }
-
-.imagen-turistica {
+.columna-izquierda {
+  flex: 2;
+  margin-right: 30px;
+}
+.columna-derecha {
   flex: 1;
-  margin: 10px;
-  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
-
-.imagen-turistica img {
+.imagen-grande img{
   width: 100%;
   height: auto;
-  transition: transform 0.3s ease;
   border-radius: 10px;
+  transition: transform 0.5s ease; /* Aplica el efecto de zoom */
+
+}
+.imagen-pequena img {
+  width: 100%;
+  height: auto;
+  transition: transform 0.5s ease; /* Aplica el efecto de zoom */
 }
 
-.imagen-turistica img:hover {
-  transform: scale(1.1);
+.imagen-grande img:hover,
+.imagen-pequena img:hover {
+  transform: scale(1.1); /* Incrementa el tamaño de la imagen al pasar el mouse */
 }
 
-.imagen-turistica p {
-  text-align: center;
+.imagen-grande p,
+.imagen-pequena p {
+  text-align: left;
   font-weight: bold;
-  margin-top: 5px;
+  margin-top: 30px;
+  font-size: 25px;
 }
