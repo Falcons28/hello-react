@@ -1,13 +1,32 @@
-// seccturismo.jsx
-import { Fragment } from "react";
-import './seccturismo.css';  // Importa el archivo CSS correspondiente
+import { Fragment,useEffect } from "react";
+import './seccturismo.css';  
 
 import cusco from '../image/turismo1.jpg';
 import arequipa from '../image/turismo2.jpg';
 import piura from '../image/turismo3.jpg';
 
 function SeccionTuristica() {
+
+  useEffect(function() {
+    // Selecciona todas las imágenes de la sección turística
+    var imagenes = document.querySelectorAll(".seccion-turistica img");
+
+    // Añade el efecto zoom al pasar el ratón sobre cada imagen
+    for (var i = 0; i < imagenes.length; i++) {
+      imagenes[i].onmouseenter = function() {
+        this.style.transform = "scale(1.045)";
+        this.style.transition = "transform 0.5s ease";
+      };
+      
+      // Quita el efecto zoom al retirar el ratón de la imagen
+      imagenes[i].onmouseleave = function() {
+        this.style.transform = "scale(1)";
+      };
+    }
+  }, []);
+  
   return (
+    //Estrucura de la sección
     <section className="seccion-turistica">
       <div className="columna-izquierda">
         <div className="imagen-grande">

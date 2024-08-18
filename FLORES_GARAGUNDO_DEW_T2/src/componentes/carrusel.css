@@ -6,7 +6,7 @@
   .carrusel img {
     width: 1700px; /* Ancho deseado */
     height: 400px; /* Alto deseado */
-    object-fit: cover;
+
     border-radius: 20px;
   }
   

@@ -1,4 +1,4 @@
-/*estidos del sección turismo*/
+/* Estilos del sección turismo */
 .seccion-turistica {
   display: flex;
   justify-content: space-between;
@@ -16,22 +16,10 @@
   flex-direction: column;
   justify-content: space-between;
 }
-.imagen-grande img{
+.imagen-grande img, .imagen-pequena img {
   width: 100%;
   height: auto;
   border-radius: 10px;
-  transition: transform 0.5s ease; /* Aplica el efecto de zoom */
-
-}
-.imagen-pequena img {
-  width: 100%;
-  height: auto;
-  transition: transform 0.5s ease; /* Aplica el efecto de zoom */
-}
-
-.imagen-grande img:hover,
-.imagen-pequena img:hover {
-  transform: scale(1.1); /* Incrementa el tamaño de la imagen al pasar el mouse */
 }
 
 .imagen-grande p,
