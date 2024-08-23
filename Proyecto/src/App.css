@@ -1,0 +1,34 @@
+body {
+  background: url(../img/fondo.jpg) no-repeat center center fixed;
+  background-size: cover;
+  text-align: center;
+  font-family: "Yanone Kaffeesatz", sans-serif;
+  font-size: large;
+  color: #fff5e0;
+}
+
+h1 {
+  font-family: "Seymour One", sans-serif;
+  font-size: xxx-large;
+  margin-bottom: 1px;
+  color: #141e46;
+}
+
+.ataques-titulo,
+h2 {
+  font-size: xx-large;
+}
+
+#boton-seleccionar{
+  width: 200px;
+  height: 40px;
+  background-color: #41B06E;
+  border-radius: 15px;
+  border: 2px solid #8DECB4;
+  color: #FFF5E0;
+  font-family: "Yanone Kaffeesatz", sans-serif;
+  font-size: large;
+}
+#boton-seleccionar:hover{
+  background-color: rgb(59, 156, 99);
+}

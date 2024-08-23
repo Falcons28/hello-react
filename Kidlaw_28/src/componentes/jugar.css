@@ -1,0 +1,83 @@
+/* App.css */
+
+body {
+    background: url('../assets/fondo.jpg') no-repeat center center fixed;
+    background-size: cover;
+    font-family: 'Arial', sans-serif;
+    color: #fff;
+  }
+  
+  .container {
+    text-align: center;
+    padding: 20px;
+  }
+  
+  .title {
+    font-size: 3em;
+    font-weight: bold;
+    margin-top: 20px;
+  }
+  
+  .icons {
+    margin-top: 10px;
+    margin-bottom: 30px;
+    /* Aquí puedes agregar estilos para los íconos, como tamaño, espaciado, etc. */
+  }
+  
+  .subtitle {
+    font-size: 1.8em;
+    margin-bottom: 20px;
+  }
+  
+  .pets {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 30px;
+  }
+  
+  .pet-card {
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+    padding: 10px;
+    width: 200px;
+    transition: transform 0.2s ease-in-out;
+  }
+  
+  .pet-card img {
+    width: 100%;
+    border-radius: 10px;
+  }
+  
+  .pet-card:hover {
+    transform: scale(1.05);
+  }
+  
+  .pet-name {
+    font-size: 1.2em;
+    margin-top: 10px;
+  }
+  
+  .buttons {
+    margin-top: 20px;
+  }
+  
+  .battle-button {
+    background-color: #4caf50;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 1em;
+    margin: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .battle-button:hover {
+    background-color: #45a049;
+  }
+  

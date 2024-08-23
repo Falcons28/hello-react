@@ -1,0 +1,22 @@
+.batalla {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    gap: 20px;
+  }
+  
+  #vidas-jugador, #vidas-enemigo {
+    font-size: 100px;
+    margin: 10px;
+  }
+  
+  #mascota-jugador img, #mascota-enemigo img {
+    width: 150px;
+    border-radius: 20px;
+  }
+  
+  #mascota-jugador div, #mascota-enemigo div {
+    font-size: x-large;
+  }
+  
+  /* Otros estilos para la batalla y combate */
+  
