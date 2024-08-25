@@ -1,15 +1,18 @@
 import { Fragment } from "react";
-import Titulo from "./componentes/Titulo";
-import Pie from "./componentes/Pie";
-import Ciudad from "./componentes/Ciudad"
+import 'bootstrap/dist/css/bootstrap.min.css'
+import Formulario from "./componente/fomulario";
 
-function App () {
-
+function App() {
   return (
-
     <>
-  
+      <div className="container container-fluid">
+        <br />
+        <br />
+        <h1>Ingreso de Datos</h1>
+        <Formulario/>
+      </div>
     </>
   );
 }
+
 export default App;

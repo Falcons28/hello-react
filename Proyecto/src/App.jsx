@@ -1,9 +1,7 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState,Fragment } from "react";
 import "./App.css";
-import "./componentes/combate.css";
-import SeleccionMascota from "./componentes/SeleccionMascota";
-import Batalla from "./componentes/Batalla";
-import Reiniciar from "./componentes/Reiniciar";
+import "./componentes/seleccion.css";
+
 import Llamaground from "./assets/llamaground.jpg";
 import Otterwater from "./assets/otterwater.jpg";
 import Cougarfire from "./assets/cougarfire.jpg";
@@ -12,7 +10,6 @@ import Anguivolta from "./assets/anguivolta.jpg";
 import Pumanoctis from "./assets/pumanoctis.jpg";
 import Frigurso from "./assets/frigurso.jpg";
 import Armaduron from "./assets/armaduron.jpg";
-
 
 
 function App() {
@@ -32,10 +29,21 @@ function App() {
   const elementSeleccionarAtaque = useRef(null);
   const [activoSeleccionarAtaque, setActivoSeleccionarAtaque] = useState(false);
 
+  let ataqueJugador;
+  let ataqueEnemigo;
+let vidasJugador = 6;
+let vidasEnemigo = 6;
+
 
   function seleccionarMascotaJugador(){
+ 
 
-    document.getElementById("seleccionar-ataque").style.display = "flex";
+        // Oculta "none"
+        document.getElementById("seleccionar-mascota").style.display = "none";
+        // Mostrar 
+        document.getElementById("seleccionar-ataque").style.display = "flex";
+        // Mostrar 
+        document.getElementById("btn-me-rindo").style.display = "block"
 
     let radio1 = document.getElementById("llamaground");
     let radio2 = document.getElementById("otterwater");
@@ -48,26 +56,26 @@ function App() {
 
     let mascotaJugador = document.getElementById("mascota-jugador");
 
-    if (radio1.checked) {
-        mascotaJugador.innerHTML = "<img src={Llamaground}  alt='Llamaground 🦙'><div>Llamaground 🦙</div>";
+    if (radio1.checked) { 
+        mascotaJugador.innerHTML = `<img src=${Llamaground}  alt='Llamaground 🦙'><div>Llamaground 🦙</div>`;
     } else if (radio2.checked) {
-        mascotaJugador.innerHTML = "<img src='./img/otterwater.jpeg' alt='Otterwater 🦦'><div>Otterwater 🦦</div>";
+        mascotaJugador.innerHTML = `<img src=${Otterwater} alt='Otterwater 🦦'><div>Otterwater 🦦</div>`;
     } else if (radio3.checked) {
-        mascotaJugador.innerHTML = "<img src='./img/cougarfire.jpeg' alt='Cougarfire 🐆'><div>Cougarfire 🐆</div>";
+        mascotaJugador.innerHTML = `<img src=${Cougarfire} alt='Cougarfire 🐆'><div>Cougarfire 🐆</div>`;
     } else if (radio4.checked) {
-        mascotaJugador.innerHTML = "<img src='./img/Andiviento.jpg' alt='Andiviento 🦅'><div>Andiviento 🦅</div>";
+        mascotaJugador.innerHTML = `<img src=${Andiviento} alt='Andiviento 🦅'><div>Andiviento 🦅</div>`;
     }
     else if (radio5.checked) {
-        mascotaJugador.innerHTML = "<img src='./img/anguivolta.jpg' alt='Anguivolta 🐍'><div>Anguivolta 🐍</div>";
+        mascotaJugador.innerHTML = `<img src=${Anguivolta} alt='Anguivolta 🐍'><div>Anguivolta 🐍</div>`;
     }
     else if (radio6.checked) {
-        mascotaJugador.innerHTML = "<img src='./img/pumanoctis.jpg' alt='Pumanoctis 🐱'><div>Pumanoctis 🐱</div>";
+        mascotaJugador.innerHTML = `<img src=${Pumanoctis} alt='Pumanoctis 🐱'><div>Pumanoctis 🐱</div>`;
     }
     else if (radio7.checked) {
-        mascotaJugador.innerHTML = "<img src='./img/frigurso.jpg' alt='Frigurso 🐻'><div>Frigurso 🐻</div>";
+        mascotaJugador.innerHTML = `<img src=${Frigurso} alt='Frigurso 🐻'><div>Frigurso 🐻</div>`;
     }
     else if (radio8.checked) {
-        mascotaJugador.innerHTML = "<img src='./img/armaduron.jpg' alt='Armaduron 🦔'><div>Armaduron 🦔</div>";
+        mascotaJugador.innerHTML = `<img src=${Armaduron} alt='Armaduron 🦔'><div>Armaduron 🦔</div>`;
     } else {
         document.getElementById("seleccionar-mascota").style.display = "block";
         document.getElementById("seleccionar-ataque").style.display = "none";
@@ -82,63 +90,100 @@ function App() {
       let mascotaAleatoria = numeroAleatorio(1, 8);
   
       if (mascotaAleatoria == 1) {
-          mascotaEnemigo.innerHTML = "<img src='./img/llamaground.jpeg' alt='Llamaground 🦙'><div>Llamaground 🦙</div>";
+          mascotaEnemigo.innerHTML = `<img src=${Llamaground} alt='Llamaground 🦙'><div>Llamaground 🦙</div>`;
       } else if (mascotaAleatoria == 2) {
-          mascotaEnemigo.innerHTML = "<img src='./img/otterwater.jpeg' alt='Otterwater 🦦'><div>Otterwater 🦦</div>";
+          mascotaEnemigo.innerHTML = ` <img src=${Otterwater} alt='Otterwater 🦦'><div>Otterwater 🦦</div>`;
       }  else if (mascotaAleatoria == 3) {
-          mascotaEnemigo.innerHTML = "<img src='./img/cougarfire.jpeg' alt='Cougarfire 🐆'><div>Cougarfire 🐆</div>";
+          mascotaEnemigo.innerHTML = ` <img src=${Cougarfire} alt='Cougarfire 🐆'><div>Cougarfire 🐆</div>`;
       } else if (mascotaAleatoria == 4) {
-          mascotaEnemigo.innerHTML = "<img src='./img/Andiviento.jpg'   alt='Andiviento 🦅'><div>Andiviento 🦅</div>";
+          mascotaEnemigo.innerHTML = `<img src=${Andiviento}   alt='Andiviento 🦅'><div>Andiviento 🦅</div>`;
       }else if (mascotaAleatoria == 5) {
-          mascotaEnemigo.innerHTML = "<img src='./img/anguivolta.jpg' alt='Anguivolta 🐍'><div>Anguivolta 🐍</div>";
+          mascotaEnemigo.innerHTML = `<img src=${Anguivolta} alt='Anguivolta 🐍'><div>Anguivolta 🐍</div>`;
       }else if (mascotaAleatoria == 6) {
-          mascotaEnemigo.innerHTML = "<img src='./img/pumanoctis.jpg' alt='Pumanoctis 🐱'><div>Pumanoctis 🐱</div>";
+          mascotaEnemigo.innerHTML = `<img src=${Pumanoctis} alt='Pumanoctis 🐱'><div>Pumanoctis 🐱</div>`;
       }else if (mascotaAleatoria == 7) {
-          mascotaEnemigo.innerHTML = "<img src='./img/frigurso.jpg' alt='Frigurso 🐻'><div>Frigurso 🐻</div>";
+          mascotaEnemigo.innerHTML = `<img src=${Frigurso}  alt='Frigurso 🐻'><div>Frigurso 🐻</div>`;
       }else {
-          mascotaEnemigo.innerHTML = "<img src='./img/armaduron.jpg' alt='Armaduron 🦔'><div>Armaduron 🦔</div>";
+          mascotaEnemigo.innerHTML = `<img src=${Armaduron} alt='Armaduron 🦔'><div>Armaduron 🦔</div>`;
       }
     }
 
     function numeroAleatorio(min, max) {
       return Math.floor(Math.random() * (max - min + 1) + min);
   }
+  
+function combate() {
+    let vidasDelJugador = document.getElementById("vidas-jugador");
+    let vidasDelEnemigo = document.getElementById("vidas-enemigo");
 
+    if (ataqueJugador == ataqueEnemigo) {
+        crearMensajes("¡EMPATE!");
+    } else if (
+        // Fuego 🔥
+        (ataqueJugador == "FUEGO 🔥" && (ataqueEnemigo == "TIERRA 🌱" || ataqueEnemigo == "HIELO ❄️" || ataqueEnemigo == "METAL 🛡️")) ||
+        // Agua 💦
+        (ataqueJugador == "AGUA 💦" && (ataqueEnemigo == "FUEGO 🔥" || ataqueEnemigo == "METAL 🛡️" || ataqueEnemigo == "OSCURIDAD 🌑")) ||
+        // Tierra 🌱
+        (ataqueJugador == "TIERRA 🌱" && (ataqueEnemigo == "AGUA 💦" || ataqueEnemigo == "AIRE 💨" || ataqueEnemigo == "RAYO ⚡")) ||
+        // Aire 💨
+        (ataqueJugador == "AIRE 💨" && (ataqueEnemigo == "FUEGO 🔥" || ataqueEnemigo == "HIELO ❄️" || ataqueEnemigo == "OSCURIDAD 🌑")) ||
+        // Rayo ⚡
+        (ataqueJugador == "RAYO ⚡" && (ataqueEnemigo == "AGUA 💦" || ataqueEnemigo == "AIRE 💨" || ataqueEnemigo == "METAL 🛡️")) ||
+        // Oscuridad 🌑
+        (ataqueJugador == "OSCURIDAD 🌑" && (ataqueEnemigo == "RAYO ⚡" || ataqueEnemigo == "HIELO ❄️")) ||
+        // Hielo ❄️
+        (ataqueJugador == "HIELO ❄️" && (ataqueEnemigo == "TIERRA 🌱" || ataqueEnemigo == "OSCURIDAD 🌑")) ||
+        // Metal 🛡️
+        (ataqueJugador == "METAL 🛡️" && (ataqueEnemigo == "RAYO ⚡" || ataqueEnemigo == "HIELO ❄️" || ataqueEnemigo == "OSCURIDAD 🌑"))
+    ) {
+        if (vidasDelEnemigo.innerHTML > 0) {
+            vidasDelEnemigo.innerHTML = --vidasDelEnemigo.innerHTML;
+            crearMensajes("¡GANASTE!");
+        }
+    } else {
+        if (vidasDelJugador.innerHTML > 0) {
+            vidasDelJugador.innerHTML = --vidasDelJugador.innerHTML;
+            crearMensajes("¡PERDISTE!");
+        }
+    }
+
+    revisarVidas();
+}
+
+function revisarVidas() {
+    let vidasJugador = parseInt(document.getElementById("vidas-jugador").innerHTML);
+    let vidasEnemigo = parseInt(document.getElementById("vidas-enemigo").innerHTML);
+
+    if (vidasJugador <= 0) {
+        mensajeFinal("Lamentablemente perdiste😢, suerte a la próxima.");
+    } else if (vidasEnemigo <= 0) {
+        mensajeFinal("¡FELICITACIONES!🎉, ganaste 😉");
+    }
+}
 
   function iniciarJuego() {
 
     useEffect(() => {
-
 
       const elementSeleccionaAtaq = document.getElementById("seleccionar-ataque")
       if(elementSeleccionaAtaq){
         elementSeleccionaAtaq.style.display = "none";
       }
 
-     /*  const elementReiniciar= document.getElementById("reiniciar")
+      const elementReiniciar = document.getElementById("reiniciar")
       if(elementReiniciar){
-        elementReiniciar.style.display = "flex";
+        elementReiniciar.style.display = "none";
       }
- */
-      let botonMascotaJugador = document.getElementById("boton-seleccionar");
-      botonMascotaJugador.addEventListener("click", seleccionarMascotaJugador);
+    
+      let botonMascotaJugador = document.getElementById("boton-seleccionar"); 
+       botonMascotaJugador.addEventListener("click", seleccionarMascotaJugador);
 
       
-       
-    }, []);
+      let botonFuego = document.getElementById("boton-fuego");
+      botonFuego.addEventListener("click", ataqueFuego);
 
-    // Desaparece el selecconar mascota
-    //document.getElementById("seleccionar-ataque").style.display = "none";
-    //document.getElementById("reiniciar").style.display = "none";
 
-   /*
-    let botonMascotaJugador = document.getElementById("boton-seleccionar");
-    botonMascotaJugador.addEventListener("click", seleccionarMascotaJugador);
-
-    let botonFuego = document.getElementById("boton-fuego");
-    botonFuego.addEventListener("click", ataqueFuego);
-
-    let botonAgua = document.getElementById("boton-agua");
+      let botonAgua = document.getElementById("boton-agua");
     botonAgua.addEventListener("click", ataqueAgua);
 
     let botonTierra = document.getElementById("boton-tierra");
@@ -160,11 +205,126 @@ function App() {
     botonMetal.addEventListener("click", ataqueMetal);
     
     let botonReiniciar = document.getElementById("boton-reiniciar");
-    botonReiniciar.addEventListener("click", reiniciarJuego);*/
+    botonReiniciar.addEventListener("click", reiniciarJuego);
+
+    let botonMeRindo = document.getElementById("boton-me-rindo");
+    botonMeRindo.addEventListener("click", rendirse);
+    }, []);
+ 
+}
+
+function ataqueFuego() {
+    ataqueJugador = "FUEGO 🔥";
+    ataqueAleatorioEnemigo();
+}
+
+
+function ataqueAgua() {
+    ataqueJugador = "AGUA 💦";
+    ataqueAleatorioEnemigo();
+}
+function ataqueTierra() {
+    ataqueJugador = "TIERRA 🌱";
+    ataqueAleatorioEnemigo();
+}
+function ataqueAire() {
+    ataqueJugador = "AIRE 💨";
+    ataqueAleatorioEnemigo();
+}
+function ataqueRayo() {
+    ataqueJugador = "RAYO ⚡";
+    ataqueAleatorioEnemigo();
+}
+function ataqueOscuridad() {
+    ataqueJugador = "OSCURIDAD 🌑";
+    ataqueAleatorioEnemigo();
+}
+function ataqueHielo() {
+    ataqueJugador = "HIELO ❄️";
+    ataqueAleatorioEnemigo();
+}
+function ataqueMetal() {
+    ataqueJugador = "METAL 🛡️";
+    ataqueAleatorioEnemigo();
+}
+
+function ataqueAleatorioEnemigo() {
+    let ataqueAleatorio = numeroAleatorio(1, 8); // Cambia el rango a 8 para incluir los nuevos poderes
+    if (ataqueAleatorio == 1) {
+        ataqueEnemigo = "FUEGO 🔥";
+    } else if (ataqueAleatorio == 2) {
+        ataqueEnemigo = "AGUA 💦";
+    } else if (ataqueAleatorio == 3) {
+        ataqueEnemigo = "TIERRA 🌱";
+    } else if (ataqueAleatorio == 4) {
+        ataqueEnemigo = "AIRE 💨";
+    } else if (ataqueAleatorio == 5) {
+        ataqueEnemigo = "RAYO ⚡";
+    } else if (ataqueAleatorio == 6) {
+        ataqueEnemigo = "OSCURIDAD 🌑";
+    } else if (ataqueAleatorio == 7) {
+        ataqueEnemigo = "HIELO ❄️";
+    } else {
+        ataqueEnemigo = "METAL 🛡️";
+    }
+    combate();
+}
+
+function reiniciarJuego() {
+    document.location.reload();
+}
+
+function crearMensajes(msj) {
+    let resultado = document.getElementById("resultado");
+    let ataqueDelJugador = document.getElementById("ataque-jugador");
+    let ataqueDelEnemigo = document.getElementById("ataque-enemigo");
+
+    let nuevoAtaqueJugador = document.createElement("p");
+    let nuevoAtaqueEnemigo = document.createElement("p");
+
+    resultado.innerHTML = msj;
+    nuevoAtaqueJugador.innerHTML = ataqueJugador;
+    nuevoAtaqueEnemigo.innerHTML = ataqueEnemigo;
+
+    ataqueDelJugador.appendChild(nuevoAtaqueJugador);
+    ataqueDelEnemigo.appendChild(nuevoAtaqueEnemigo);
+}
+
+function mensajeFinal(msj) {
+    let resultado = document.getElementById("resultado");
+    resultado.innerHTML = msj;
+
+    document.getElementById("boton-fuego").disabled = true;
+    document.getElementById("boton-agua").disabled = true;
+    document.getElementById("boton-tierra").disabled = true;
+    document.getElementById("boton-aire").disabled = true;
+    document.getElementById("boton-rayo").disabled = true;
+    document.getElementById("boton-oscuridad").disabled = true;
+    document.getElementById("boton-hielo").disabled = true;
+    document.getElementById("boton-metal").disabled = true;
+    document.getElementById("reiniciar").style.display = "block";
+}
+
+function rendirse() {
+    // Mostrar un mensaje i
+    var resultado = document.getElementById("resultado");
+    resultado.innerHTML = "¡Te has rendido! 😔";
+
+    // Establecer las vidas del jugador a 0
+    document.getElementById("vidas-jugador").innerHTML = "0";
+
+    // Deshabilitar todos los botones de ataque
+    var ataques = ["fuego", "agua", "tierra", "aire", "rayo", "oscuridad", "hielo", "metal"];
+    for (var i = 0; i < ataques.length; i++) {
+        document.getElementById("boton-" + ataques[i]).disabled = true;
+    }
+
+    // Mostrar el botón de reinicio y ocultar las opciones de batalla
+    document.getElementById("reiniciar").style.display = "block";
+    document.getElementById("btn-me-rindo").style.display = "none";
 }
 
 iniciarJuego();
-
 
   return (
     <div className="App">
