@@ -9,3 +9,6 @@ function MascotaEnemigo({ ataqueEnemigo }) {
 }
 
 export default MascotaEnemigo;
+
+
+

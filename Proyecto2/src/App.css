@@ -19,7 +19,7 @@ h2 {
   font-size: xx-large;
 }
 
-.boton-seleccionar{
+#boton-seleccionar{
   width: 200px;
   height: 40px;
   background-color: #41B06E;
@@ -29,6 +29,6 @@ h2 {
   font-family: "Yanone Kaffeesatz", sans-serif;
   font-size: large;
 }
-.boton-seleccionar:hover{
+#boton-seleccionar:hover{
   background-color: rgb(59, 156, 99);
 }

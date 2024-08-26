@@ -7,6 +7,8 @@ import Batalla from "./componentes/Batalla";
 import Mensajes from "./componentes/Mensajes";
 import BotonReiniciar from "./componentes/BotonReiniciar";
 import BotonRendirse from "./componentes/BotonRendirse";
+import seleccionarMascotaEnemigo from "./componentes/MascotaEnemigo";
+
 
 function App() {
   const [mascotaSeleccionada, setMascotaSeleccionada] = useState(null);
@@ -49,6 +51,7 @@ function App() {
               vidasEnemigo={vidasEnemigo}
               ataqueJugador={ataqueSeleccionado}
             />
+          <seleccionarMascotaEnemigo/>
             <BotonReiniciar />
             <BotonRendirse setVidasJugador={setVidasJugador} />
           </>

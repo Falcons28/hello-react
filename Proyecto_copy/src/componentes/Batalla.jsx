@@ -12,7 +12,10 @@ function Batalla({ vidasJugador, vidasEnemigo, ataqueJugador, ataqueEnemigo }) {
       </div>
       <div>
         <p id="vidas-enemigo">{vidasEnemigo}</p>
+        
         <MascotaEnemigo ataqueEnemigo={ataqueEnemigo} />
+
+     
       </div>
     </div>
   );

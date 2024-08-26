@@ -10,12 +10,30 @@ import Anguivolta from "./assets/anguivolta.jpg";
 import Pumanoctis from "./assets/pumanoctis.jpg";
 import Frigurso from "./assets/frigurso.jpg";
 import Armaduron from "./assets/armaduron.jpg";
+import Mascota from "./componentes/Mascota";
+import MascotaSeleccionada from "./componentes/MascotaSeleccionada";
 
 
 function App() {
   const [mascotaSeleccionada, setMascotaSeleccionada] = useState(null);
   const [ataqueSeleccionado, setAtaqueSeleccionado] = useState(null);
   const [batallaIniciada, setBatallaIniciada] = useState(false);
+
+  const objLlama = {id: "llamaground", rutaImagen:Llamaground, nombreImagenConIcono: "Llamaground 🦙"}
+  const objotterwater = {id: "otterwater", rutaImagen:Otterwater, nombreImagenConIcono: "Otterwater 🦦"}
+  const objcougarfire = {id: "cougarfire", rutaImagen:Cougarfire, nombreImagenConIcono: "Cougarfire 🐆"}
+  const objandiviento = {id: "andiviento", rutaImagen:Andiviento, nombreImagenConIcono: "Andiviento 🦅"}
+  const objanguivolta = {id: "anguivolta", rutaImagen:Anguivolta, nombreImagenConIcono: "Anguivolta 🐍"}
+  const objpumanoctis = {id: "pumanoctis", rutaImagen:Pumanoctis, nombreImagenConIcono: "Pumanoctis 🐱"}
+  const objfrigurso = {id: "frigurso", rutaImagen:Frigurso, nombreImagenConIcono: "Frigurso 🐻"}
+  const objarmaduron= {id: "armaduron", rutaImagen:Armaduron, nombreImagenConIcono: "Armaduron 🦔"}
+
+  const listadoMascotas = [
+    objLlama,objotterwater,objcougarfire,objandiviento,objanguivolta,objpumanoctis,objfrigurso,objarmaduron
+  ]
+
+
+
 
   const handleMascotaSeleccionada = (mascota) => {
     setMascotaSeleccionada(mascota);
@@ -35,77 +53,35 @@ let vidasJugador = 6;
 let vidasEnemigo = 6;
 
 
-  function seleccionarMascotaJugador(){
- 
+const [mascotaSeleccionadaJugador, setMascotaSeleccionadaJugador] = useState(null); 
 
+const manejarSeleccionJugador = (mascotaSeleccionada) => { 
+    setMascotaSeleccionadaJugador(mascotaSeleccionada);
+};
+
+const [mascotaJugador, setMascotaJugador] = useState(null);
+const [mascotaEnemigo, setMascotaEnemigo] = useState(null);
+
+  const seleccionarMascotaJugador = () =>{
         // Oculta "none"
         document.getElementById("seleccionar-mascota").style.display = "none";
         // Mostrar 
         document.getElementById("seleccionar-ataque").style.display = "flex";
         // Mostrar 
         document.getElementById("btn-me-rindo").style.display = "block"
-
-    let radio1 = document.getElementById("llamaground");
-    let radio2 = document.getElementById("otterwater");
-    let radio3 = document.getElementById("cougarfire");
-    let radio4 = document.getElementById("andiviento");
-    let radio5 = document.getElementById("anguivolta");
-    let radio6 = document.getElementById("pumanoctis");
-    let radio7 = document.getElementById("frigurso");
-    let radio8 = document.getElementById("armaduron");
-
     let mascotaJugador = document.getElementById("mascota-jugador");
-
-    if (radio1.checked) { 
-        mascotaJugador.innerHTML = `<img src=${Llamaground}  alt='Llamaground 🦙'><div>Llamaground 🦙</div>`;
-    } else if (radio2.checked) {
-        mascotaJugador.innerHTML = `<img src=${Otterwater} alt='Otterwater 🦦'><div>Otterwater 🦦</div>`;
-    } else if (radio3.checked) {
-        mascotaJugador.innerHTML = `<img src=${Cougarfire} alt='Cougarfire 🐆'><div>Cougarfire 🐆</div>`;
-    } else if (radio4.checked) {
-        mascotaJugador.innerHTML = `<img src=${Andiviento} alt='Andiviento 🦅'><div>Andiviento 🦅</div>`;
-    }
-    else if (radio5.checked) {
-        mascotaJugador.innerHTML = `<img src=${Anguivolta} alt='Anguivolta 🐍'><div>Anguivolta 🐍</div>`;
-    }
-    else if (radio6.checked) {
-        mascotaJugador.innerHTML = `<img src=${Pumanoctis} alt='Pumanoctis 🐱'><div>Pumanoctis 🐱</div>`;
-    }
-    else if (radio7.checked) {
-        mascotaJugador.innerHTML = `<img src=${Frigurso} alt='Frigurso 🐻'><div>Frigurso 🐻</div>`;
-    }
-    else if (radio8.checked) {
-        mascotaJugador.innerHTML = `<img src=${Armaduron} alt='Armaduron 🦔'><div>Armaduron 🦔</div>`;
-    } else {
-        document.getElementById("seleccionar-mascota").style.display = "block";
-        document.getElementById("seleccionar-ataque").style.display = "none";
-        alert("Elige una mascota 🐵");
-    }
+    console.log("ejecutando: seleccionarMascotaJugador")
+    console.log("idImagenSeleccionada: "+mascotaSeleccionadaJugador)
+    setMascotaJugador(mascotaSeleccionadaJugador)
     seleccionarMascotaEnemigo()
       console.log("hola chamo")
     }
 
     function seleccionarMascotaEnemigo(){
       let mascotaEnemigo = document.getElementById("mascota-enemigo");
-      let mascotaAleatoria = numeroAleatorio(1, 8);
-  
-      if (mascotaAleatoria == 1) {
-          mascotaEnemigo.innerHTML = `<img src=${Llamaground} alt='Llamaground 🦙'><div>Llamaground 🦙</div>`;
-      } else if (mascotaAleatoria == 2) {
-          mascotaEnemigo.innerHTML = ` <img src=${Otterwater} alt='Otterwater 🦦'><div>Otterwater 🦦</div>`;
-      }  else if (mascotaAleatoria == 3) {
-          mascotaEnemigo.innerHTML = ` <img src=${Cougarfire} alt='Cougarfire 🐆'><div>Cougarfire 🐆</div>`;
-      } else if (mascotaAleatoria == 4) {
-          mascotaEnemigo.innerHTML = `<img src=${Andiviento}   alt='Andiviento 🦅'><div>Andiviento 🦅</div>`;
-      }else if (mascotaAleatoria == 5) {
-          mascotaEnemigo.innerHTML = `<img src=${Anguivolta} alt='Anguivolta 🐍'><div>Anguivolta 🐍</div>`;
-      }else if (mascotaAleatoria == 6) {
-          mascotaEnemigo.innerHTML = `<img src=${Pumanoctis} alt='Pumanoctis 🐱'><div>Pumanoctis 🐱</div>`;
-      }else if (mascotaAleatoria == 7) {
-          mascotaEnemigo.innerHTML = `<img src=${Frigurso}  alt='Frigurso 🐻'><div>Frigurso 🐻</div>`;
-      }else {
-          mascotaEnemigo.innerHTML = `<img src=${Armaduron} alt='Armaduron 🦔'><div>Armaduron 🦔</div>`;
-      }
+      let mascotaAleatoria = numeroAleatorio(1, 8); 
+      console.log(listadoMascotas[mascotaAleatoria])
+        setMascotaEnemigo(listadoMascotas[mascotaAleatoria])
     }
 
     function numeroAleatorio(min, max) {
@@ -175,8 +151,8 @@ function revisarVidas() {
         elementReiniciar.style.display = "none";
       }
     
-      let botonMascotaJugador = document.getElementById("boton-seleccionar"); 
-       botonMascotaJugador.addEventListener("click", seleccionarMascotaJugador);
+     /* let botonMascotaJugador = document.getElementById("boton-seleccionar"); 
+       botonMascotaJugador.addEventListener("click", seleccionarMascotaJugador);*/
 
       
       let botonFuego = document.getElementById("boton-fuego");
@@ -334,50 +310,21 @@ iniciarJuego();
         <div className="div-hijo">
           <section id="seleccionar-mascota">
             <h2>Elige tu mascota:</h2>
-              <div className="tarjetas">
-                    <input type="radio" name="mascota" id="llamaground"/>
-                    <label htmlFor="llamaground">
-                        <img src={Llamaground} alt="Llamaground 🦙"/>
-                        <div>Llamaground 🦙</div>
-                    </label>
-                    <input type="radio" name="mascota" id="otterwater"/>
-                    <label htmlFor="otterwater">
-                        <img src={Otterwater} alt="Otterwater 🦦"/>
-                        <div>Otterwater 🦦</div>
-                    </label>
-                    <input type="radio" name="mascota" id="cougarfire"/>
-                    <label htmlFor="cougarfire">
-                        <img src={Cougarfire} alt="Cougarfire 🐆"/>
-                        <div>Cougarfire 🐆</div>
-                    </label>
-                    <input type="radio" name="mascota" id="andiviento"/>
-                    <label htmlFor="andiviento">
-                        <img src={Andiviento} alt="Andiviento 🦅"/>
-                        <div>Andiviento 🦅</div>
-                    </label>
-                    <input type="radio" name="mascota" id="anguivolta"/>
-                    <label htmlFor="anguivolta">
-                        <img src={Anguivolta} alt="Anguivolta 🐍"/>
-                        <div>Anguivolta 🐍</div>
-                    </label>
-                    <input type="radio" name="mascota" id="pumanoctis"/>
-                    <label htmlFor="pumanoctis">
-                        <img src={Pumanoctis} alt="Pumanoctis 🐱"/>
-                        <div>Pumanoctis 🐱</div>
-                    </label>
-                    <input type="radio" name="mascota" id="frigurso"/>
-                    <label htmlFor="frigurso">
-                        <img src={Frigurso} alt="Frigurso 🐻"/>
-                        <div>Frigurso 🐻</div>
-                    </label>
-                    <input type="radio" name="mascota" id="armaduron"/>
-                    <label htmlFor="armaduron">
-                        <img src={Armaduron} alt="Armaduron 🦔"/>
-                        <div>Armaduron 🦔</div>
-                    </label>
+              <div className="tarjetas"> 
+                    {listadoMascotas.map((elemento, index) => (
+                          <Mascota key={index} mascota ={elemento} onSelect={manejarSeleccionJugador}/>
+                    ))}
               </div>
-              <p><button id="boton-seleccionar">Seleccionar</button></p>
+              {
+                          mascotaSeleccionadaJugador &&   
+                          <div>
+                          ID Imagen seleccionada: {mascotaSeleccionadaJugador.id}
+                      </div>
+                        } 
+              <p><button className="boton-seleccionar" onClick={seleccionarMascotaJugador} >Seleccionar</button></p>  
           </section>
+
+
           <section id="seleccionar-ataque" ref={elementSeleccionarAtaque}>
                 <h2>Elige tu ataque</h2>
 
@@ -400,13 +347,23 @@ iniciarJuego();
        
                 <div className="batalla">
                     <div>
-                        <p id="vidas-jugador">6</p>
-                        <div id="mascota-jugador"></div>
+                        <p id="vidas-jugador">6</p> 
+                        <p>JUGADOR</p>
+                        {
+                          mascotaJugador &&   
+                            <MascotaSeleccionada mascota={mascotaJugador} />
+                        } 
                         <div id="ataque-jugador"></div>
                     </div>
                     <div>
                         <p id="vidas-enemigo">6</p>
-                        <div id="mascota-enemigo"></div>
+
+                        <p>ENEMIGO</p>
+                        {
+                          mascotaEnemigo &&   
+                            <MascotaSeleccionada mascota = {mascotaEnemigo} />
+                        }
+                       
                         <div id="ataque-enemigo"></div>
                     </div>
                 </div>

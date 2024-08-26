@@ -156,12 +156,9 @@ h1 {
   margin: 10px;
 }
 
-#mascota-jugador img, #mascota-enemigo img {
+.mascota-batallar  {
   width: 150px;
   border-radius: 20px;
-}
-
-#mascota-jugador div, #mascota-enemigo div {
   font-size: x-large;
 }
 
